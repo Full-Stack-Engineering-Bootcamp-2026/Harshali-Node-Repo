@@ -29,7 +29,7 @@ const server=http.createServer((req,res)=>{
             </body>
         </html>
         `)
-}})
+}}) 
 const port=3000;
 server.listen(port,()=>{
     console.log(`server started on port ${port}`)
