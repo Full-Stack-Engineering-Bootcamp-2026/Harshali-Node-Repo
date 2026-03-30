@@ -1,0 +1,17 @@
+body {
+  font-family: Arial;
+  margin: 20px;
+}
+
+h1 {
+  color: darkblue;
+}
+
+a {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+li {
+  margin: 5px 0;
+}
