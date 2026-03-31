@@ -9,6 +9,7 @@ const p = path.join(
 
 module.exports = class Product {
   constructor(title, price) {
+     this.id = Math.random().toString();
     this.title = title;
     this.price = price;
   }
@@ -35,6 +36,19 @@ module.exports = class Product {
         return cb([]);
       }
       cb(JSON.parse(fileContent));
+    });
+  }
+
+  static findById(id, cb) {
+    fs.readFile(p, (err, fileContent) => {
+      if (err) {
+        return cb(undefined);
+      }
+
+      const products = JSON.parse(fileContent);
+      const product = products.find(p => p.id === id);
+
+      cb(product);
     });
   }
 };
