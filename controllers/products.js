@@ -21,6 +21,7 @@ exports.postAddProduct = (req, res, next) => {
 
   res.redirect('/');
 };
+
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
 
