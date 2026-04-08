@@ -15,7 +15,7 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
-const errorController = require("./controllers/error");
+const errorController = require("./controllers/error.controller");
 const { FORCE } = require("sequelize/lib/index-hints");
 
 app.use(express.urlencoded({ extended: false }));
