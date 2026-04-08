@@ -1,6 +1,6 @@
 const Product = require('../models/product');
-const Cart = require('../models/cart');
-const Order=require('../models/order')
+//const Cart = require('../models/cart');
+//const Order=require('../models/order')
 const { where } = require('sequelize');
 
 exports.getProducts = (req, res, next) => {
@@ -20,11 +20,11 @@ exports.getProducts = (req, res, next) => {
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
  //Product.findAll({where:{id:prodId}})
-  Product.findByPk(prodId)
-  .then(product=>{
+   Product.findByPk(prodId)
+   .then(product=>{
     res.render('shop/product-detail',{
       product:product,
-      pageTitle:product.title,
+       pageTitle:product.title,
       path:'/products'
     })
   })
@@ -32,7 +32,7 @@ exports.getProduct = (req, res, next) => {
 };
 
 exports.getIndex = (req, res, next) => {
-  Product.findAll()
+  Product.fetchAll()
   .then(products=>{
      res.render('shop/index', {
       prods: products,
@@ -105,12 +105,12 @@ exports.postCart = (req, res, next) => {
       return product;
       
     }
-    return Product.findByPk(prodId)  //what is this
+    return Product.findByPk(prodId)  
 
   })
   .then(product=>{ 
     return fetchedCart.addProduct(product,{
-      through: {quantity:newQuantity}
+      through: {quantity:newQuantity}                    //through for middle table
     })
   })
   .then(()=>{
