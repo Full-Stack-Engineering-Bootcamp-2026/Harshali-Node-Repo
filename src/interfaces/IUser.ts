@@ -1,0 +1,10 @@
+import { Role } from "./roles.enum";
+export interface IUser{
+    name: string;
+    email: string;
+    password: string;
+    role: Role;
+
+    isVerified: boolean;
+    verificationToken: string;
+}
